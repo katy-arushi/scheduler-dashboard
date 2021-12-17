@@ -7,6 +7,7 @@ class Panel extends Component {
     return (
       <section
         className="dashboard__panel"
+        // passing the reference to the function as props
         onClick={onSelect}
       >
         <h1 className="dashboard__panel-header">{label}</h1>
