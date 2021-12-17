@@ -77,8 +77,12 @@ class Dashboard extends Component {
         interviewers: interviewers.data
       });
     });
+
+    this.socket = new WebSocket(process.env.REACT_APP_WEBSOCKET_URL);
+
   }
 
+  // on subsequent renders
   // listens for changes in the state
   // same as useEffect hook
   componentDidUpdate(previousProps, previousState) {
@@ -95,7 +99,7 @@ class Dashboard extends Component {
     if (this.state.loading) {
       return <Loading />;
     }
-    
+
     const panels = data
       .filter(
         panel => this.state.focused === null || this.state.focused === panel.id
